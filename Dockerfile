@@ -1,4 +1,4 @@
-FROM ghcr.io/linuxserver/baseimage-guacgui:6be0127d-ls90
+FROM ghcr.io/linuxserver/baseimage-guacgui:d9057f6b-ls141
 
 
 # set version label
