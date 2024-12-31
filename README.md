@@ -28,7 +28,7 @@ Compatible with docker-compose v2 schemas.
 version: "2.1"
 services:
   calibre:
-    image: studioetrange/kcc
+    image: monro/kcc
     container_name: kcc
     environment:
       - PUID=1000
