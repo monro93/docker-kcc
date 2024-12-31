@@ -14,6 +14,18 @@ ENV REPO_GIT "https://github.com/ciromattia/kcc"
 ENV KCC_VERSION "master"
 
 RUN \
+ echo "*** update to last ubuntu version ***" && \
+  apt-get update && \
+  apt-get upgrade -y && \
+  apt-get install -y update-manager-core && \
+  sed -i 's/^Prompt=.*/Prompt=normal/' /etc/update-manager/release-upgrades && \
+  export DEBIAN_FRONTEND=noninteractive && \
+  apt-get -o Dpkg::Options::="--force-confnew" -y upgrade && \
+  apt-get -o Dpkg::Options::="--force-confnew" -o Dpkg::Options::="--force-confdef" -y dist-upgrade
+
+
+
+RUN \
  echo "**** install packages ****" && \
  apt-get update && \
  apt-get install -y \
